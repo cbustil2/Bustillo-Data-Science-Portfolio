@@ -3,3 +3,7 @@ As I am taking an introductory class into Data Science, listed here will be my p
 
 ### Projects
 
+
+## Goals:
+- To set up a group for the Data Science Class, another for any elective from Data Science, and personal projects
+- In the README.md, include a TLDR of each project with link that will go into the particular project. 
