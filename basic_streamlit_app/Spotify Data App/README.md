@@ -5,3 +5,5 @@ As part of an assignment, we are asked to make a basic streamlit app using data 
 
 ## My App 🖥️
 
+### Objectives and Goals:
+I hoped to make an app that focused on 
