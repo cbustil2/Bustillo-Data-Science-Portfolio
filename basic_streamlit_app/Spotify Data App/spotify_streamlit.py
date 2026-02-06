@@ -27,7 +27,7 @@ st.write("Ever wonder what songs are the most popular on Spotify? " \
 "Ever wonder what songs you would want to dance your heart to?" \
 " Hopefully this app will help you!! :smile:")
 st.write("This app will allow you to set up preferences based on energy level,\
-dancebility, popularity, and explicit/clean content." \
+ danceability, popularity, and explicit/clean content." \
 " From there you will find a list of songs in the similar range of your preferences!")
 st.write("Let's get started! :musical_note: :notes:")
 
