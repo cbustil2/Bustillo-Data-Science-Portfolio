@@ -6,4 +6,4 @@ As part of an assignment, we are asked to make a basic streamlit app using data 
 ## My App 🖥️
 
 ### Objectives and Goals:
-I hoped to make an app that focused on 
+I hoped to make an app that focused on energy level, danceability, popularity, and explicit/clean content. I also want to acknowledge the difficulty of finding a song, so I provided a histogram focused on the genre chosen to provide where a general range could done. 
