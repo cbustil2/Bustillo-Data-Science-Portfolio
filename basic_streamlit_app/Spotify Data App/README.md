@@ -1,5 +1,5 @@
 <h1>
-  <img src="https://m.media-amazon.com/images/I/51rttY7a+9L.png" width="60" style="vertical-align: middle;">
+  <img src="https://m.media-amazon.com/images/I/51rttY7a+9L.png" width="40" style="vertical-align: middle;">
   Spotify Data App 🎵
 </h1>
 
