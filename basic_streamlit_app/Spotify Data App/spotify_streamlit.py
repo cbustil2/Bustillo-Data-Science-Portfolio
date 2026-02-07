@@ -33,6 +33,12 @@ st.write("Let's get started! :musical_note: :notes:")
 
 #Loading spotify_data.csv file
 import pandas as pd
+import os
+
+if not os.path.exists("spotify_data.csv"):
+    st.error("spotify_data.csv not found. Make sure it is in the same folder as your app.")
+else:
+    df = pd.read_csv("spotify_data.csv")
 
 df = pd.read_csv("spotify_data.csv")
 
