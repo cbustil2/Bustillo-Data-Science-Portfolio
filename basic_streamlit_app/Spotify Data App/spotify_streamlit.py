@@ -53,7 +53,7 @@ popularity_lvl = st.slider('Popularity', min_value=0, max_value=100, value=50, s
 choice = st.radio("What you feelin'?", ['Clean', 'Explicit'])
 selected_genre = st.selectbox("🎼 Pick a genre", df["track_genre"].unique())
 
-margin = 10
+margin = st.slider("Variability", min_value=0, max_value=20, value=10, step=1) #Gives them the option
 
 #changing the values
 explicit_map = {
@@ -147,7 +147,7 @@ chart = st.altair_chart(hist, use_container_width=True)
 # If all else fails, finding songs based on popularity and artists
 
 #Option to choose the artist within the genre and popularity
-st.subheader("If vibees aren't for you, here's a way to find songs based on popularity and artists! :sunglasses:")
+st.subheader("If vibes aren't for you, here's a way to find songs based on popularity and artists! :sunglasses:")
 popularity_lvl_2 = st.slider('Popularity for Artists', min_value=0, max_value=100, value = 50, step=1)
 selected_genre2 = st.selectbox("Pick a genre", df["track_genre"].unique())
 genre1_df = df[ 
@@ -159,14 +159,14 @@ selected_artist = st.selectbox("🎤 Pick an artist", artists)
 
 Final_df = genre1_df[genre1_df["artists"] == selected_artist]
 
+st.subheader(f"Here are some songs by *{selected_artist}* in the **{selected_genre2}** \
+             genre with popularity around {popularity_lvl_2}! :musical_note: :notes:")
+
 songs = Final_df["track_name"].unique().tolist()
 selected_song = st.selectbox("🎵 Pick a song", songs)
 
-st.subheader(f"Here are some songs by {selected_artist} in the {selected_genre2} \
-             genre with popularity around {popularity_lvl_2}! :musical_note: :notes:")
-
-if st.button("Spotify Link for the Song"):
-    # Filter to the selected s  ong
+if st.button(f"Spotify Link for **{selected_song}**"):
+    # Filter to the selected song
     song_df = Final_df[Final_df["track_name"] == selected_song]
 
     if not song_df.empty:
@@ -190,6 +190,6 @@ st.subheader("Works Cited :books:")
 st.write("The data that has been collected can be found [here](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset/data)." \
 " Maharshi Pandya is the author of the data set with DOI: https://doi.org/10.34740/kaggle/dsv/4372070")
 
-#Some of the fixing of errors and bugs in the code was done with the help of CoPilot.
-#  I also used the Streamlit documentation to help me with some of the code: 
+# Some of the fixing of errors and bugs in the code was done with the help of CoPilot.
+# I also used the Streamlit documentation to help me with some of the code: 
 # https://docs.streamlit.io/library/api-reference/widgets
