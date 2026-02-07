@@ -1,5 +1,5 @@
 <p>
-  <img src="https://m.media-amazon.com/images/I/51rttY7a+9L.png" width="180">
+  <img src="https://m.media-amazon.com/images/I/51rttY7a+9L.png" width="100">
 </p> 
 
 # Spotify Data App 🎵
