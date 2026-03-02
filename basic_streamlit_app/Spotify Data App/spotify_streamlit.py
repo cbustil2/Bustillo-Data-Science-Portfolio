@@ -16,12 +16,17 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
+#================================================================================
 #Title and Objective/Goal - Energy Level, Dancebility, Popularity, Explicit/Clean
+#================================================================================
+
 st.markdown(
     "<h1 style='text-align: center;'>You Hear that?? 💃🎧🕺</h1>",
     unsafe_allow_html=True
 )
+#---------------------------------------------------------------------------------
+# Subheader and Description
+#---------------------------------------------------------------------------------
 
 st.write("Ever wonder what songs are the most popular on Spotify? " \
 "Ever wonder what songs you would want to dance your heart to?" \
@@ -31,7 +36,10 @@ st.write("This app will allow you to set up preferences based on energy level,\
 " From there you will find a list of songs in the similar range of your preferences!")
 st.write("Let's get started! :musical_note: :notes:")
 
-#Loading spotify_data.csv file
+#--------------------------------------------------------------------------------
+# Loading spotify_data.csv file
+#--------------------------------------------------------------------------------
+
 import pandas as pd
 import os
 
@@ -42,18 +50,26 @@ else:
 
 df = pd.read_csv("spotify_data.csv")
 
+#================================================================================
+# Scaling Data for Sliders
+#================================================================================
+
+
 #Energy Level Slider (SCALED 1)
 #I need to first edit the data so it fits the slider.
 df["energy"] = df["energy"] * 100
 df["danceability"] = df["danceability"] * 100
 
-energy_lvl = st.slider("❄️ Low Energy  →  High Energy 🔥", min_value=0, max_value=100, value=50, step = 1) #Note I need margin of error of at least 8
+energy_lvl = st.slider("❄️ Low Energy  →  High Energy 🔥", 
+                       min_value=0, max_value=100, value=50, step = 1)
+ #Note I need margin of error of at least 8
 dancebility_lvl = st.slider('Danceability', min_value=0, max_value=100, value=50, step=1)
 popularity_lvl = st.slider('Popularity', min_value=0, max_value=100, value=50, step=1)
 choice = st.radio("What you feelin'?", ['Clean', 'Explicit'])
 selected_genre = st.selectbox("🎼 Pick a genre", df["track_genre"].unique())
 
-margin = st.slider("Variability", min_value=0, max_value=20, value=10, step=1) #Gives them the option
+margin = st.slider("Variability", min_value=0, max_value=20, value=10, step=1) 
+#Gives them the option
 
 #changing the values
 explicit_map = {
@@ -70,13 +86,15 @@ filtered_df = df[
 ]
 
 st.subheader(f"Here are some {selected_genre} songs you might like! :musical_note: :notes:")
-columns_to_show = ["track_name", "artists", "album_name", "energy", "danceability", "popularity"]
+columns_to_show = ["track_name", "artists", 
+                   "album_name", "energy", 
+                   "danceability", "popularity"]
 st.dataframe(filtered_df[columns_to_show])
 
 if filtered_df.empty:
     st.write("Sorry, no songs match your preferences. " \
     "Try adjusting the sliders or selecting a different genre." \
-    "If it'll help, here is a graph of the specific genre you selected! :smile:")   
+    " If it'll help, here is a graph of the specific genre you selected! :smile:")   
 
 selected_song = st.selectbox("Choose your song", filtered_df["track_name"].unique())
 
@@ -128,14 +146,18 @@ genre_df = df[df["track_genre"] == selected_genre]
 # Altair selection
 selection = alt.selection_interval(encodings=["x"])
 
-#Histogram for frequency of energy, popularity, and dancebility levels in the selected genre
+#================================================================================
+# Histogram for frequency of energy, popularity, and dancebility levels in the selected genre
+#================================================================================
+
 hist = (
     alt.Chart(genre_df)
     .mark_bar()
     .encode(
         alt.X(f"{attribute}:Q", bin=alt.Bin(maxbins=30)),
         alt.Y("count()"),
-        color=alt.Color(f"{attribute}:Q", bin=alt.Bin(maxbins=30), scale=alt.Scale(scheme="viridis")),
+        color=alt.Color(f"{attribute}:Q", bin=alt.Bin(maxbins=30), 
+        scale=alt.Scale(scheme="viridis")),
         opacity=alt.condition(selection, alt.value(1), alt.value(0.3))
     )
     .add_params(selection)
@@ -144,10 +166,14 @@ hist = (
 st.subheader(f"Frequency of {attribute.capitalize()}")
 chart = st.altair_chart(hist, use_container_width=True)
 
+#--------------------------------------------------------------------------------
 # If all else fails, finding songs based on popularity and artists
+#--------------------------------------------------------------------------------
 
 #Option to choose the artist within the genre and popularity
-st.subheader("If vibes aren't for you, here's a way to find songs based on popularity and artists! :sunglasses:")
+
+st.subheader("If vibes aren't for you, here's a way \
+             to find songs based on popularity and artists! :sunglasses:")
 popularity_lvl_2 = st.slider('Popularity for Artists', min_value=0, max_value=100, value = 50, step=1)
 selected_genre2 = st.selectbox("Pick a genre", df["track_genre"].unique())
 genre1_df = df[ 
@@ -183,12 +209,24 @@ if st.button(f"Spotify Link for **{selected_song}**"):
     else:
         st.error("No track ID found for this song.")
 
+#--------------------------------------------------------------------------------
+# Summary and Observing Missing Data
+#--------------------------------------------------------------------------------
+st.write("**Summary Statistics**")
+st.dataframe(df.describe())
 
+st.subheader("Missing Data Analyssis :mag_right:")
+st.dataframe(df.isnull().sum())
+
+#--------------------------------------------------------------------------------
 # Works and Data:
+#--------------------------------------------------------------------------------
 
 st.subheader("Works Cited :books:")
-st.write("The data that has been collected can be found [here](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset/data)." \
-" Maharshi Pandya is the author of the data set with DOI: https://doi.org/10.34740/kaggle/dsv/4372070")
+st.write("The data that has been collected can be found \
+[here](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset/data)." \
+" Maharshi Pandya is the author of the data set with DOI:\
+ https://doi.org/10.34740/kaggle/dsv/4372070")
 
 # Some of the fixing of errors and bugs in the code was done with the help of CoPilot.
 # I also used the Streamlit documentation to help me with some of the code: 
