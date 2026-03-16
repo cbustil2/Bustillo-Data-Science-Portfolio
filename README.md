@@ -3,6 +3,7 @@ As I am taking an introductory class into Data Science, listed here will be my p
 
 ## Projects
 [Spotify Data App](https://github.com/cbustil2/Bustillo-Data-Science-Portfolio/blob/main/basic_streamlit_app/Spotify%20Data%20App/README.md)
+
 - Finding ways to find a song to dance to, vibe, or discover. 
 
 ## Goals:
