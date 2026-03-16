@@ -8,7 +8,6 @@ In this project, I am working on the process of tidying and analyzing data from 
   <tr>
     <td style="border: none;">
     
-**List 1**
 - DOD - Deparment of Defense
 - NASA - National Aeronautics and Space Administration
 - DOE - Department of Energy
@@ -20,7 +19,6 @@ In this project, I am working on the process of tidying and analyzing data from 
     </td>
     <td style="border: none;">
     
-**List 2**
 - Interior - Department of Interior
 - DOT - Deparment of Transportation
 - EPA - Environmental Protection Agency
