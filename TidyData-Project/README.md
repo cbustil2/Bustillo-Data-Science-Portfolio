@@ -31,5 +31,11 @@ In this project, I am working on the process of tidying and analyzing data from 
   </tr>
 </table>
 
+| Abbreviation  | Department    | Description                                                |
+|---------------|---------------|------------------------------------------------------------|
+| DOD           | Department of Defense | Responsible for national security, providing military forces to deter war, and protecting national interests |
+
+
+
 ## Cleaning and Analyzing Data
 Since the data is quite simple and provides me the rd_budget, melting the data wasn't too difficult. However one major problem I faced was dealing with the how the columns were named.  
