@@ -34,7 +34,8 @@ In this project, I am working on the process of tidying and analyzing data from 
 | Abbreviation  | Department    | Description                                                |
 |---------------|---------------|------------------------------------------------------------|
 | DOD           | Department of Defense | Responsible for national security, providing military forces to deter war, and protecting national interests |
-
+| NASA          | National Aeronautics and Space Administration | Responsible for the nation's civilian space program, aeronautics research, and space exploration. |
+| DOE           | Department of Energy | Ensures America’s security and prosperity by addressing energy, environmental, and nuclear challenges through transformative science and technology |
 
 
 ## Cleaning and Analyzing Data
