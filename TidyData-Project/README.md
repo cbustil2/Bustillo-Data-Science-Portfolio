@@ -1,4 +1,4 @@
-# Tidy Data Project
+# [Tidy Data Project](https://github.com/cbustil2/Bustillo-Data-Science-Portfolio/blob/main/TidyData-Project/tidying_rd_budget.ipynb)
 
 In this project, I am working on the process of tidying and analyzing data from a dataset. I have decided to look into the data from the Federal R&D Budgets. In the data, you can find the federal research budgets by department, year, research & development dollars (rd_budget), total discretionary federal government spending (discretionary_outlays), and total U.S. Gross Domestic Product. (ref. [jonthegeek](https://github.com/rfordatascience/tidytuesday/tree/main/data/2019/2019-02-12))
 
@@ -17,7 +17,9 @@ In this project, I am working on the process of tidying and analyzing data from 
 | DOT           | Deparment of Transportation | ensures a safe, efficient, and modern national transportation system covering aviation, highways, rail, and transit |
 | DHS           | Department of Homeland Security | Protects the United States from threats, including terrorism, cyberattacks, and natural disasters, while managing borders, immigration, and maritime security |
 | VA            | Department of Veterans Affairs | Provides comprehensive services to military veterans and their dependents, including healthcare, disability compensation, education assistance (GI Bill), home loan guarantees, and burial benefits |
-| Other         | other research and development spending | 
+| Other         | other research and development spending |                                                              |
+
+*all descriptions found by Google Gemini*
 
 ## Cleaning and Analyzing Data
 Since the data is quite simple and provides me the rd_budget, melting the data wasn't too difficult. However one major problem I faced was dealing with the how the columns were named.  
