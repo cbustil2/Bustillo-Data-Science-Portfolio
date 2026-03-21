@@ -8,6 +8,8 @@ As I am taking an introductory class into Data Science, listed here will be my p
 
 [Tidying Federal R&D](https://github.com/cbustil2/Bustillo-Data-Science-Portfolio/tree/main/TidyData-Project)
 - Learning the process of tidying data and visualizing it in a more concise and simpler matter. 
+- This process has helped me to understand how to deal with messy-looking data and prepare it for data-analyzing
+- With regards to coding, I have learned how to use melt(), split(), and pivot(). This particular dataset also allowed me to see the progress and development of government spending. 
 
 ## Goals:
 - To set up a group for the Data Science Class, another for any elective from Data Science, and personal projects
