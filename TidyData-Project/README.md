@@ -22,4 +22,6 @@ In this project, I am working on the process of tidying and analyzing data from 
 *all descriptions found by Google Gemini*
 
 ## Cleaning and Analyzing Data
-Since the data is quite simple and provides me the rd_budget, melting the data wasn't too difficult. However one major problem I faced was dealing with the how the columns were named.  
+Since the data is quite simple and provides me the rd_budget, melting the data wasn't too difficult. However one major problem I faced was dealing with the how the columns were named.
+There wasn't too many missing values with the exception of the DHS, which wasn't created until 2002. 
+To see more of the step by step process of the project, follow my [code](https://github.com/cbustil2/Bustillo-Data-Science-Portfolio/blob/main/TidyData-Project/tidying_rd_budget.ipynb)

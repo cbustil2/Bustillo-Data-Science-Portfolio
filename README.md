@@ -6,6 +6,9 @@ As I am taking an introductory class into Data Science, listed here will be my p
 
 - Finding ways to find a song to dance to, vibe, or discover. 
 
+[Tidying Federal R&D](https://github.com/cbustil2/Bustillo-Data-Science-Portfolio/tree/main/TidyData-Project)
+- Learning the process of tidying data and visualizing it in a more concise and simpler matter. 
+
 ## Goals:
 - To set up a group for the Data Science Class, another for any elective from Data Science, and personal projects
 - In the README.md, include a TLDR of each project with link that will go into the particular project. 
