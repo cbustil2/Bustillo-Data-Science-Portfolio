@@ -27,3 +27,19 @@ There wasn't too many missing values with the exception of the DHS, which wasn't
 To see more of the step by step process of the project, follow my [code](https://github.com/cbustil2/Bustillo-Data-Science-Portfolio/blob/main/TidyData-Project/tidying_rd_budget.ipynb)
 Much of the code that I used was gudied by the [Pandas Cheat sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
 
+## General Outline:
+1) Identify any missing values
+2) Assess how to melt the columns and understand what are the given variables
+3) Melt and split() to visualize the cleaned data (Both with and without NaN values)
+4) Create a aggregate table using pivot()
+
+## Skills and Tools learned:
+
+In this project, I learned how to melt data, tidy datasets, make pivot tables, and analyze the information given. I practiced using pandas and seaborn as a way to help me tidy data. Below are the programs I used  
+
+<div align="center" style="display: flex; justify-content: center; gap: 30px; margin: 30px 0; flex-wrap: wrap;">
+  <img src="https://www.python.org/static/community_logos/python-logo.png" width="80" alt="Python">
+  <img src="https://pandas.pydata.org/static/img/pandas.svg" width="80" alt="Pandas">
+  <img src="https://seaborn.pydata.org/_images/logo-wide-lightbg.svg" width="100" alt="Seaborn">
+</div>
+
