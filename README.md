@@ -11,6 +11,11 @@ As I am taking an introductory class into Data Science, listed here will be my p
 - This process has helped me to understand how to deal with messy-looking data and prepare it for data-analyzing
 - With regards to coding, I have learned how to use melt(), split(), and pivot(). This particular dataset also allowed me to see the progress and development of government spending. 
 
+[Machine Learning Streamlit App](https://github.com/cbustil2/Bustillo-Data-Science-Portfolio/tree/main/MLStreamlitApp)
+- Utilizing supervised learning models, such as linear and logistic regression, decision trees, k-nearest neighbors. 
+- Learned how to interact with the user even more, allowing them to upload their own data and by my code, allowing them to implement a linear or logistic regression model. 
+- Key lessons is the process of modeling either linear or logistically and following their respective assumptions and graphing calculations. 
+
 ## Goals:
 - To set up a group for the Data Science Class, another for any elective from Data Science, and personal projects
 - In the README.md, include a TLDR of each project with link that will go into the particular project. 
