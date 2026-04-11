@@ -162,7 +162,7 @@ if uploaded_file is not None: #This is so I have a raw daata variable that won't
         algorithm = st.sidebar.selectbox("Select Algorithm", options=["Linear Regression",\
                                                                        "Logistic Regression"])
 with tab2:
-    if uploaded_file is not None: 
+    if raw_data is not None: 
         st.header("Raw Dataset Preview")
         st.write("Here is a preview of your raw dataset:")
         st.dataframe(raw_data.head()) #I want to show the raw data here so that if they choose to remove missing values, they can see the difference in the dataset.
@@ -170,7 +170,7 @@ with tab2:
         st.write("Raw Dataset Summary:")
         st.write(raw_data.describe())
     else: 
-        st.write("Please upload a dataset to preview :smile:")
+        st.write("Please upload a dataset or choose the sample dataset to preview :smile:")
 
 with tab3:
     if df is not None: 
@@ -180,11 +180,11 @@ with tab3:
         
         st.write("Cleaned Dataset Summary:")
         st.write(df.describe())
-    elif uploaded_file is not None:
-        st.write("Please go to the sidebar and remove missing values so a cleaned dataset can be created.")
+    elif raw_data is not None:
+        st.write("Please go to the sidebar and choose a missing-value strategy so a cleaned dataset can be created.")
     else:
         st.write("If you would like to see a cleaned dataset preview, " \
-        "please upload a dataset and edit it from the sidebar! :smile:")
+        "please upload a dataset or choose the sample dataset from the sidebar! :smile:")
 
 
 
