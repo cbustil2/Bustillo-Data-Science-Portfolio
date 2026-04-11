@@ -194,11 +194,11 @@ with tab4:
     if algorithm is not None:
         st.header("Machine Learning Algorithms.")
 
-            if algorithm == "Linear Regression":
-        st.write("Linear Regression will be implemented here.")
-        st.write(f"You have selected *{target_variable}* as your target variable \
+        if algorithm == "Linear Regression":
+            st.write("Linear Regression will be implemented here.")
+            st.write(f"You have selected *{target_variable}* as your target variable \
                  and *{features}* as your features for Linear Regression.")
-        st.write("Important: for a good model, make sure that the MSE is low and the R-squared value\
+            st.write("Important: for a good model, make sure that the MSE is low and the R-squared value\
                   is close to 1. Also, make sure to check the scatter plot of \
                  actual vs predicted values to check for linearity, the VIF (Variance Inflation Factor)\
                  for multicollinearity, and the Q-Q plot \
@@ -296,16 +296,14 @@ with tab4:
             ax.set_title("Q-Q Plot of Residuals")
             st.pyplot(fig)
 
-        else:
-            st.warning("Please upload a dataset and select \
-                       missing-value removal options in the sidebar before running Linear Regression.")
+
     
 
-            elif algorithm == "Logistic Regression":
-        st.write("Logistic Regression will be implemented here.")
-        st.write(f"You have selected *{target_variable}* as your target variable \
+        elif algorithm == "Logistic Regression":
+            st.write("Logistic Regression will be implemented here.")
+            st.write(f"You have selected *{target_variable}* as your target variable \
                  and *{features}* as your features for Logistic Regression.")
-        st.write("Important: for a good model, make sure that the accuracy is \
+            st.write("Important: for a good model, make sure that the accuracy is \
                  high and the ROC AUC score is close to 1. Also, make sure to check \
                  the confusion matrix and the classification report to evaluate the \
                  performance of your logistic regression model.")
