@@ -66,16 +66,34 @@ with tab1:
 st.sidebar.header(" Step 1: :file_folder: Upload Your Dataset")
 use_sample_dataset_hitter = st.sidebar.checkbox("Use sample Hitter dataset instead of uploading")
 use_sample_dataset_paris = st.sidebar.checkbox("Use sample Paris Housing dataset instead of uploading")
+
+raw_data = None
 if use_sample_dataset_hitter:
-    sample_file_path = "Hitters.xls"
-    uploaded_file = sample_file_path
+    try:
+        raw_data = pd.read_excel("Hitters.xls")
+        st.sidebar.success("Sample Hitter dataset loaded successfully! :white_check_mark:")
+    except FileNotFoundError:
+        st.sidebar.error("Sample Hitter dataset not found. Please upload your own dataset.")
 elif use_sample_dataset_paris:
-    sample_file_path = "ParisHousing.xls"
-    uploaded_file = sample_file_path
+    try:
+        raw_data = pd.read_excel("ParisHousing.xls")
+        st.sidebar.success("Sample Paris Housing dataset loaded successfully! :white_check_mark:")
+    except FileNotFoundError:
+        st.sidebar.error("Sample Paris Housing dataset not found. Please upload your own dataset.")
 else:
     uploaded_file = st.sidebar.file_uploader("Choose a CSV, XLSX, or XLS file", type=["csv", "xlsx", "xls"])
+    if uploaded_file is not None:
+        try:
+            raw_data = pd.read_csv(uploaded_file, encoding_errors='ignore')
+        except:
+            try:
+                raw_data = pd.read_excel(uploaded_file)
+            except:
+                st.sidebar.error("Failed to read the uploaded file.")
+                raw_data = None
+        if raw_data is not None:
+            st.sidebar.success("File uploaded successfully! :white_check_mark:")
 
-raw_data = None #This will be useful for the interactiveness of the app
 df = None
 algorithm = None
 
@@ -83,33 +101,13 @@ algorithm = None
 # Data Upload and Cleaning
 #================================================================================
 
-# Note: I am going to do most of the sidebar under this if statement
-# My goal here is to allow the user to make edits the data but also know what there target
-# variable is so they can apply the machine learning algorithms to it later on. 
-# I also want to make sure that they can see the difference in the data if they 
-# choose to remove missing values or not.
-# Link to code that I will be using for assistance: https://github.com/Amsamms/General-machine-learning-algorithm/blob/master/main.py
-
-if uploaded_file is not None: #This is so I have a raw daata variable that won't be changed if
-                    # user wants to remove data with missing values.
-    try:
-        raw_data = pd.read_csv(uploaded_file, encoding_errors='ignore')
-    except:
-        pass
-    try:
-        raw_data = pd.read_excel(uploaded_file, engine='openpyxl')
-    except:
-        pass
-    try:
-        raw_data = pd.read_excel(uploaded_file, engine='openpyxl')
-    except:
-        pass
-    st.sidebar.success("File uploaded successfully! :white_check_mark:")
+if raw_data is not None:
     st.sidebar.header("Step 2: :pencil2: Edit Your Dataset")
     st.sidebar.write("Before looking at your dataset under the tab\
                      you can choose how to handle missing values in your dataset.\
                       This can help with the machine learning algorithms later on.")
     st.sidebar.write("Here are the number of data that has missing values in each column:")
+    st.sidebar.dataframe(raw_data.isnull().sum().to_frame().T)
 
     # Choosing missing-value strategy
     missing_strategy = st.sidebar.selectbox(
@@ -120,48 +118,34 @@ if uploaded_file is not None: #This is so I have a raw daata variable that won't
             "Fill missing values with mode",
         ],
     )
-    df = raw_data.copy() if raw_data is not None else None #this allows the user to upload either a .csv or\
-                # .xlsx file and it will read it accordingly.
+    df = raw_data.copy()
 
-    if df is not None:
-        if missing_strategy == "Remove missing values":
-            df.dropna(inplace=True)
-            st.sidebar.success("Missing values removed! :white_check_mark:")
-        elif missing_strategy == "Fill missing values with mean":
-            mean_values = df.mean(numeric_only=True).to_dict()
-            df = df.fillna(mean_values)
-            st.sidebar.success("Missing numeric values with column mean! :white_check_mark:")
-        elif missing_strategy == "Fill missing values with mode":
-            mode_values = {}
-            for col in df.columns:
-                mode = df[col].mode(dropna=True)
-                if not mode.empty:
-                    mode_values[col] = mode.iloc[0]
-            df = df.fillna(mode_values)
-            st.sidebar.success("Missing values filled with column mode! :white_check_mark:")
-    else:
-        st.sidebar.info("Missing values not changed. The app will not continue with the original dataset.")
+    if missing_strategy == "Remove missing values":
+        df.dropna(inplace=True)
+        st.sidebar.success("Missing values removed! :white_check_mark:")
+    elif missing_strategy == "Fill missing values with mean":
+        mean_values = df.mean(numeric_only=True).to_dict()
+        df = df.fillna(mean_values)
+        st.sidebar.success("Missing numeric values filled with column mean! :white_check_mark:")
+    elif missing_strategy == "Fill missing values with mode":
+        mode_values = {}
+        for col in df.columns:
+            mode = df[col].mode(dropna=True)
+            if not mode.empty:
+                mode_values[col] = mode.iloc[0]
+        df = df.fillna(mode_values)
+        st.sidebar.success("Missing values filled with column mode! :white_check_mark:")
     
-    if raw_data is not None:
-        st.sidebar.header("Step 3: :chart_with_upwards_trend: Apply Machine Learning Algorithms")
+    st.sidebar.header("Step 3: :chart_with_upwards_trend: Apply Machine Learning Algorithms")
 
-        # Choosing target variable and features for machine learning algorithms
-        st.sidebar.write("Choose your target variable and features for machine learning algorithms.")
-        if df is not None: 
-            st.sidebar.write("Note: Since you chose to remove missing values, the target variable \
-                             and features will be based on the cleaned dataset.")
-            target_variable = st.sidebar.selectbox("**Select Target Variable**", options=df.columns)
-            features = st.sidebar.multiselect("**Select Features**", options=df.columns)
-        else:
-            st.sidebar.write("Note: Since you chose to keep missing values, the target variable \
-                             and features will be based on the original dataset.")
-            target_variable_raw = st.sidebar.selectbox("**Select Target Variable**", options=raw_data.columns)
-            features_raw = st.sidebar.multiselect("**Select Features**", options=raw_data.columns)
-        
-        #Choosing machine learning algorithm
-        st.sidebar.subheader("Choose Machine Learning Algorithm")
-        algorithm = st.sidebar.selectbox("Select Algorithm", options=["Linear Regression",\
-                                                                       "Logistic Regression"])
+    # Choosing target variable and features for machine learning algorithms
+    st.sidebar.write("Choose your target variable and features for machine learning algorithms.")
+    target_variable = st.sidebar.selectbox("**Select Target Variable**", options=df.columns)
+    features = st.sidebar.multiselect("**Select Features**", options=df.columns)
+    
+    #Choosing machine learning algorithm
+    st.sidebar.subheader("Choose Machine Learning Algorithm")
+    algorithm = st.sidebar.selectbox("Select Algorithm", options=["Linear Regression", "Logistic Regression"])
 with tab2:
     if raw_data is not None: 
         st.header("Raw Dataset Preview")
@@ -307,8 +291,8 @@ with tab4:
                  high and the ROC AUC score is close to 1. Also, make sure to check \
                  the confusion matrix and the classification report to evaluate the \
                  performance of your logistic regression model.")
-        #Splitting Data
-        if df is not None:
+            #Splitting Data
+            if df is not None:
             X = df[features] 
             y = df[target_variable]
             from sklearn.model_selection import train_test_split
