@@ -141,25 +141,26 @@ if uploaded_file is not None: #This is so I have a raw daata variable that won't
     else:
         st.sidebar.info("Missing values not changed. The app will not continue with the original dataset.")
     
-    st.sidebar.header("Step 3: :chart_with_upwards_trend: Apply Machine Learning Algorithms")
+    if raw_data is not None:
+        st.sidebar.header("Step 3: :chart_with_upwards_trend: Apply Machine Learning Algorithms")
 
-    # Choosing target variable and features for machine learning algorithms
-    st.sidebar.write("Choose your target variable and features for machine learning algorithms.")
-    if df is not None: 
-        st.sidebar.write("Note: Since you chose to remove missing values, the target variable \
-                         and features will be based on the cleaned dataset.")
-        target_variable = st.sidebar.selectbox("**Select Target Variable**", options=df.columns)
-        features = st.sidebar.multiselect("**Select Features**", options=df.columns)
-    else:
-        st.sidebar.write("Note: Since you chose to keep missing values, the target variable \
-                         and features will be based on the original dataset.")
-        target_variable_raw = st.sidebar.selectbox("**Select Target Variable**", options=raw_data.columns)
-        features_raw = st.sidebar.multiselect("**Select Features**", options=raw_data.columns)
-    
-    #Choosing machine learning algorithm
-    st.sidebar.subheader("Choose Machine Learning Algorithm")
-    algorithm = st.sidebar.selectbox("Select Algorithm", options=["Linear Regression",\
-                                                                   "Logistic Regression"])
+        # Choosing target variable and features for machine learning algorithms
+        st.sidebar.write("Choose your target variable and features for machine learning algorithms.")
+        if df is not None: 
+            st.sidebar.write("Note: Since you chose to remove missing values, the target variable \
+                             and features will be based on the cleaned dataset.")
+            target_variable = st.sidebar.selectbox("**Select Target Variable**", options=df.columns)
+            features = st.sidebar.multiselect("**Select Features**", options=df.columns)
+        else:
+            st.sidebar.write("Note: Since you chose to keep missing values, the target variable \
+                             and features will be based on the original dataset.")
+            target_variable_raw = st.sidebar.selectbox("**Select Target Variable**", options=raw_data.columns)
+            features_raw = st.sidebar.multiselect("**Select Features**", options=raw_data.columns)
+        
+        #Choosing machine learning algorithm
+        st.sidebar.subheader("Choose Machine Learning Algorithm")
+        algorithm = st.sidebar.selectbox("Select Algorithm", options=["Linear Regression",\
+                                                                       "Logistic Regression"])
 with tab2:
     if uploaded_file is not None: 
         st.header("Raw Dataset Preview")
@@ -381,9 +382,3 @@ with tab4:
             st.warning("Please upload a dataset and select \
                        missing-value removal options in the sidebar before running Logistic Regression.")
         
-
-
-
-
-
-
