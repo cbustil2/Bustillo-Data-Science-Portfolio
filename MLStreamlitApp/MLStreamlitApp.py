@@ -77,6 +77,7 @@ else:
 
 raw_data = None #This will be useful for the interactiveness of the app
 df = None
+algorithm = None
 
 #================================================================================
 # Data Upload and Cleaning
@@ -190,9 +191,10 @@ with tab3:
 
 
 with tab4:
-    st.header("Machine Learning Algorithms.")
+    if algorithm is not None:
+        st.header("Machine Learning Algorithms.")
 
-    if algorithm == "Linear Regression":
+            if algorithm == "Linear Regression":
         st.write("Linear Regression will be implemented here.")
         st.write(f"You have selected *{target_variable}* as your target variable \
                  and *{features}* as your features for Linear Regression.")
@@ -299,7 +301,7 @@ with tab4:
                        missing-value removal options in the sidebar before running Linear Regression.")
     
 
-    elif algorithm == "Logistic Regression":
+            elif algorithm == "Logistic Regression":
         st.write("Logistic Regression will be implemented here.")
         st.write(f"You have selected *{target_variable}* as your target variable \
                  and *{features}* as your features for Logistic Regression.")
@@ -381,4 +383,6 @@ with tab4:
         else:
             st.warning("Please upload a dataset and select \
                        missing-value removal options in the sidebar before running Logistic Regression.")
+    else:
+        st.write("Please load a dataset and select an algorithm from the sidebar to see machine learning results.")
         
