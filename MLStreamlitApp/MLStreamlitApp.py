@@ -109,7 +109,7 @@ if uploaded_file is not None: #This is so I have a raw daata variable that won't
                      you can choose how to handle missing values in your dataset.\
                       This can help with the machine learning algorithms later on.")
     st.sidebar.write("Here are the number of data that has missing values in each column:")
-    st.sidebar.dataframe(raw_data.isnull().sum())
+
     # Choosing missing-value strategy
     missing_strategy = st.sidebar.selectbox(
         "Choose how to handle missing values:",
