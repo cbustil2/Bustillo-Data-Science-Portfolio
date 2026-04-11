@@ -38,7 +38,7 @@ with tab1:
         or if you don''t have a dataset, you can use the Hitter dataset or Paris Housing dataset \
             that is put into the app from Kaggle. Hitter dataset contains information \
                 about baseball players and their performance, while the Paris Housing dataset \
-                    contains information about housing prices in Paris.
+                    contains information about housing prices in Paris. \
         2. **Edit Your Dataset**: In the sidebar, you can choose to remove \
             any missing values from your dataset to ensure better performance\
                   of machine learning algorithms.
@@ -66,49 +66,50 @@ with tab1:
 st.sidebar.header(" Step 1: :file_folder: Upload Your Dataset")
 use_sample_dataset_hitter = st.sidebar.checkbox("Use sample Hitter dataset instead of uploading")
 use_sample_dataset_paris = st.sidebar.checkbox("Use sample Paris Housing dataset instead of uploading")
-
-raw_data = None
 if use_sample_dataset_hitter:
-    try:
-        raw_data = pd.read_excel("Hitters.xls")
-        st.sidebar.success("Sample Hitter dataset loaded successfully! :white_check_mark:")
-    except FileNotFoundError:
-        st.sidebar.error("Sample Hitter dataset not found. Please upload your own dataset.")
+    sample_file_path = "Hitters.xls"
+    uploaded_file = sample_file_path
 elif use_sample_dataset_paris:
-    try:
-        raw_data = pd.read_excel("ParisHousing.xls")
-        st.sidebar.success("Sample Paris Housing dataset loaded successfully! :white_check_mark:")
-    except FileNotFoundError:
-        st.sidebar.error("Sample Paris Housing dataset not found. Please upload your own dataset.")
+    sample_file_path = "ParisHousing.xls"
+    uploaded_file = sample_file_path
 else:
     uploaded_file = st.sidebar.file_uploader("Choose a CSV, XLSX, or XLS file", type=["csv", "xlsx", "xls"])
-    if uploaded_file is not None:
-        try:
-            raw_data = pd.read_csv(uploaded_file, encoding_errors='ignore')
-        except:
-            try:
-                raw_data = pd.read_excel(uploaded_file)
-            except:
-                st.sidebar.error("Failed to read the uploaded file.")
-                raw_data = None
-        if raw_data is not None:
-            st.sidebar.success("File uploaded successfully! :white_check_mark:")
 
+raw_data = None #This will be useful for the interactiveness of the app
 df = None
-algorithm = None
 
 #================================================================================
 # Data Upload and Cleaning
 #================================================================================
 
-if raw_data is not None:
+# Note: I am going to do most of the sidebar under this if statement
+# My goal here is to allow the user to make edits the data but also know what there target
+# variable is so they can apply the machine learning algorithms to it later on. 
+# I also want to make sure that they can see the difference in the data if they 
+# choose to remove missing values or not.
+# Link to code that I will be using for assistance: https://github.com/Amsamms/General-machine-learning-algorithm/blob/master/main.py
+
+if uploaded_file is not None: #This is so I have a raw daata variable that won't be changed if
+                    # user wants to remove data with missing values.
+    try:
+        raw_data = pd.read_csv(uploaded_file, encoding_errors='ignore')
+    except:
+        pass
+    try:
+        raw_data = pd.read_excel(uploaded_file, engine='openpyxl')
+    except:
+        pass
+    try:
+        raw_data = pd.read_excel(uploaded_file, engine='openpyxl')
+    except:
+        pass
+    st.sidebar.success("File uploaded successfully! :white_check_mark:")
     st.sidebar.header("Step 2: :pencil2: Edit Your Dataset")
     st.sidebar.write("Before looking at your dataset under the tab\
                      you can choose how to handle missing values in your dataset.\
                       This can help with the machine learning algorithms later on.")
     st.sidebar.write("Here are the number of data that has missing values in each column:")
-    st.sidebar.dataframe(raw_data.isnull().sum().to_frame().T)
-
+    st.sidebar.dataframe(raw_data.isnull().sum())
     # Choosing missing-value strategy
     missing_strategy = st.sidebar.selectbox(
         "Choose how to handle missing values:",
@@ -118,7 +119,8 @@ if raw_data is not None:
             "Fill missing values with mode",
         ],
     )
-    df = raw_data.copy()
+    df = raw_data.copy() #this allows the user to upload either a .csv or\
+                # .xlsx file and it will read it accordingly.
 
     if missing_strategy == "Remove missing values":
         df.dropna(inplace=True)
@@ -126,7 +128,7 @@ if raw_data is not None:
     elif missing_strategy == "Fill missing values with mean":
         mean_values = df.mean(numeric_only=True).to_dict()
         df = df.fillna(mean_values)
-        st.sidebar.success("Missing numeric values filled with column mean! :white_check_mark:")
+        st.sidebar.success("Missing numeric values with column mean! :white_check_mark:")
     elif missing_strategy == "Fill missing values with mode":
         mode_values = {}
         for col in df.columns:
@@ -135,19 +137,30 @@ if raw_data is not None:
                 mode_values[col] = mode.iloc[0]
         df = df.fillna(mode_values)
         st.sidebar.success("Missing values filled with column mode! :white_check_mark:")
+    else:
+        st.sidebar.info("Missing values not changed. The app will not continue with the original dataset.")
     
     st.sidebar.header("Step 3: :chart_with_upwards_trend: Apply Machine Learning Algorithms")
 
     # Choosing target variable and features for machine learning algorithms
     st.sidebar.write("Choose your target variable and features for machine learning algorithms.")
-    target_variable = st.sidebar.selectbox("**Select Target Variable**", options=df.columns)
-    features = st.sidebar.multiselect("**Select Features**", options=df.columns)
+    if df is not None: 
+        st.sidebar.write("Note: Since you chose to remove missing values, the target variable \
+                         and features will be based on the cleaned dataset.")
+        target_variable = st.sidebar.selectbox("**Select Target Variable**", options=df.columns)
+        features = st.sidebar.multiselect("**Select Features**", options=df.columns)
+    else:
+        st.sidebar.write("Note: Since you chose to keep missing values, the target variable \
+                         and features will be based on the original dataset.")
+        target_variable_raw = st.sidebar.selectbox("**Select Target Variable**", options=raw_data.columns)
+        features_raw = st.sidebar.multiselect("**Select Features**", options=raw_data.columns)
     
     #Choosing machine learning algorithm
     st.sidebar.subheader("Choose Machine Learning Algorithm")
-    algorithm = st.sidebar.selectbox("Select Algorithm", options=["Linear Regression", "Logistic Regression"])
+    algorithm = st.sidebar.selectbox("Select Algorithm", options=["Linear Regression",\
+                                                                   "Logistic Regression"])
 with tab2:
-    if raw_data is not None: 
+    if uploaded_file is not None: 
         st.header("Raw Dataset Preview")
         st.write("Here is a preview of your raw dataset:")
         st.dataframe(raw_data.head()) #I want to show the raw data here so that if they choose to remove missing values, they can see the difference in the dataset.
@@ -155,7 +168,7 @@ with tab2:
         st.write("Raw Dataset Summary:")
         st.write(raw_data.describe())
     else: 
-        st.write("Please upload a dataset or choose the sample dataset to preview :smile:")
+        st.write("Please upload a dataset to preview :smile:")
 
 with tab3:
     if df is not None: 
@@ -165,24 +178,23 @@ with tab3:
         
         st.write("Cleaned Dataset Summary:")
         st.write(df.describe())
-    elif raw_data is not None:
-        st.write("Please go to the sidebar and choose a missing-value strategy so a cleaned dataset can be created.")
+    elif uploaded_file is not None:
+        st.write("Please go to the sidebar and remove missing values so a cleaned dataset can be created.")
     else:
         st.write("If you would like to see a cleaned dataset preview, " \
-        "please upload a dataset or choose the sample dataset from the sidebar! :smile:")
+        "please upload a dataset and edit it from the sidebar! :smile:")
 
 
 
 
 with tab4:
-    if algorithm is not None:
-        st.header("Machine Learning Algorithms.")
+    st.header("Machine Learning Algorithms.")
 
-        if algorithm == "Linear Regression":
-            st.write("Linear Regression will be implemented here.")
-            st.write(f"You have selected *{target_variable}* as your target variable \
+    if algorithm == "Linear Regression":
+        st.write("Linear Regression will be implemented here.")
+        st.write(f"You have selected *{target_variable}* as your target variable \
                  and *{features}* as your features for Linear Regression.")
-            st.write("Important: for a good model, make sure that the MSE is low and the R-squared value\
+        st.write("Important: for a good model, make sure that the MSE is low and the R-squared value\
                   is close to 1. Also, make sure to check the scatter plot of \
                  actual vs predicted values to check for linearity, the VIF (Variance Inflation Factor)\
                  for multicollinearity, and the Q-Q plot \
@@ -280,19 +292,21 @@ with tab4:
             ax.set_title("Q-Q Plot of Residuals")
             st.pyplot(fig)
 
-
+        else:
+            st.warning("Please upload a dataset and select \
+                       missing-value removal options in the sidebar before running Linear Regression.")
     
 
-        elif algorithm == "Logistic Regression":
-            st.write("Logistic Regression will be implemented here.")
-            st.write(f"You have selected *{target_variable}* as your target variable \
+    elif algorithm == "Logistic Regression":
+        st.write("Logistic Regression will be implemented here.")
+        st.write(f"You have selected *{target_variable}* as your target variable \
                  and *{features}* as your features for Logistic Regression.")
-            st.write("Important: for a good model, make sure that the accuracy is \
+        st.write("Important: for a good model, make sure that the accuracy is \
                  high and the ROC AUC score is close to 1. Also, make sure to check \
                  the confusion matrix and the classification report to evaluate the \
                  performance of your logistic regression model.")
-            #Splitting Data
-            if df is not None:
+        #Splitting Data
+        if df is not None:
             X = df[features] 
             y = df[target_variable]
             from sklearn.model_selection import train_test_split
@@ -362,9 +376,13 @@ with tab4:
             st.pyplot(fig)
             
 
-        else:
-            st.warning("Please upload a dataset and select \
-                       missing-value removal options in the sidebar before running Logistic Regression.")
     else:
-        st.write("Please load a dataset and select an algorithm from the sidebar to see machine learning results.")
+        st.warning("Please upload a dataset and select \
+                       missing-value removal options in the sidebar before running Logistic Regression.")
         
+
+
+
+
+
+
