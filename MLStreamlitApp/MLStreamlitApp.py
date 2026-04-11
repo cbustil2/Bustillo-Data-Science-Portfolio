@@ -119,7 +119,7 @@ if uploaded_file is not None: #This is so I have a raw daata variable that won't
             "Fill missing values with mode",
         ],
     )
-    df = raw_data.copy() #this allows the user to upload either a .csv or\
+    df = raw_data.copy() if raw_data is not None else None #this allows the user to upload either a .csv or\
                 # .xlsx file and it will read it accordingly.
 
     if missing_strategy == "Remove missing values":
