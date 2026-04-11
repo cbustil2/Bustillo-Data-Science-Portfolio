@@ -122,21 +122,22 @@ if uploaded_file is not None: #This is so I have a raw daata variable that won't
     df = raw_data.copy() if raw_data is not None else None #this allows the user to upload either a .csv or\
                 # .xlsx file and it will read it accordingly.
 
-    if missing_strategy == "Remove missing values":
-        df.dropna(inplace=True)
-        st.sidebar.success("Missing values removed! :white_check_mark:")
-    elif missing_strategy == "Fill missing values with mean":
-        mean_values = df.mean(numeric_only=True).to_dict()
-        df = df.fillna(mean_values)
-        st.sidebar.success("Missing numeric values with column mean! :white_check_mark:")
-    elif missing_strategy == "Fill missing values with mode":
-        mode_values = {}
-        for col in df.columns:
-            mode = df[col].mode(dropna=True)
-            if not mode.empty:
-                mode_values[col] = mode.iloc[0]
-        df = df.fillna(mode_values)
-        st.sidebar.success("Missing values filled with column mode! :white_check_mark:")
+    if df is not None:
+        if missing_strategy == "Remove missing values":
+            df.dropna(inplace=True)
+            st.sidebar.success("Missing values removed! :white_check_mark:")
+        elif missing_strategy == "Fill missing values with mean":
+            mean_values = df.mean(numeric_only=True).to_dict()
+            df = df.fillna(mean_values)
+            st.sidebar.success("Missing numeric values with column mean! :white_check_mark:")
+        elif missing_strategy == "Fill missing values with mode":
+            mode_values = {}
+            for col in df.columns:
+                mode = df[col].mode(dropna=True)
+                if not mode.empty:
+                    mode_values[col] = mode.iloc[0]
+            df = df.fillna(mode_values)
+            st.sidebar.success("Missing values filled with column mode! :white_check_mark:")
     else:
         st.sidebar.info("Missing values not changed. The app will not continue with the original dataset.")
     
