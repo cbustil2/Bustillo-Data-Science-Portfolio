@@ -1,6 +1,17 @@
 # [Tidy Data Project](https://github.com/cbustil2/Bustillo-Data-Science-Portfolio/blob/main/TidyData-Project/tidying_rd_budget.ipynb)
 
-In this project, I am working on the process of tidying and analyzing data from a dataset. I have decided to look into the data from the Federal R&D Budgets. In the data, you can find the federal research budgets by department, year, research & development dollars (rd_budget), total discretionary federal government spending (discretionary_outlays), and total U.S. Gross Domestic Product. (ref. [jonthegeek](https://github.com/rfordatascience/tidytuesday/tree/main/data/2019/2019-02-12))
+In this project, I am working on the process of *tidying* and *analyzing data* from a dataset. I have decided to look into the data from the Federal R&D Budgets. In the data, you can find the federal research budgets by department, year, research & development dollars (rd_budget), total discretionary federal government spending (discretionary_outlays), and total U.S. Gross Domestic Product. (ref. [jonthegeek](https://github.com/rfordatascience/tidytuesday/tree/main/data/2019/2019-02-12))
+
+## Goals and Objectives: 
+- Demonstrate how to clean data and how to tidy it
+- Express the data, uncleaned and cleaned, through tables, histograms, and other appropriate graphs. 
+
+## Process:
+- Found and imported data to observe and analyze
+- Look at the data and identify missing values
+- Reshape the Dataset into a tidy format and melt it
+- Visualize the clean data in forms of graph: Bar graph and pie graph
+- Create a pivot table for further analysis
 
 ## Terminology Guide
 

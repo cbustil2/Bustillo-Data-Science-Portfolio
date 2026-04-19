@@ -19,6 +19,14 @@ As we are learning how to utilize Supervised Machine Learning models, we are ask
 3) I want to help the user understand what the machine learning model does for them.
     - I not only include graphs and calculations, I also include what some of the values may mean as well as what they should expect in a graph. 
 
+## Process: 
+- I found inspiration from jonthegeek and started with figuring out how to allow users to import data
+- Next, I organized some tabs so the user can go step by step in the process I would like them to go through
+- With the side-tab, I coded it so that the user can clean their dataset from there, keeping the machine learning and tidying separate
+- Moving to the process tabs, I make sure that the raw data and the clean data is in separate areas so that they can see the changes
+- Going through the significant graphs and computations in both linear and logistic regression models, I code both in separate select_boxes
+- I add comments and explain what the graph/calculations mean and what is appropriate or preferred for data
+
 ## How to Use the App
 
 When you click [here](https://cbustilmachinelearning.streamlit.app/), it should take you to the app (Note: there has been a confusing error so the app is not exactly active). When you enter the app, there are three main steps:
