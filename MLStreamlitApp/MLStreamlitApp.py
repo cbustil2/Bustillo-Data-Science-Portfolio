@@ -141,23 +141,21 @@ if uploaded_file is not None: #This is so I have a raw daata variable that won't
                     mode_values[col] = mode.iloc[0]
             df = df.fillna(mode_values)
             st.sidebar.success("Missing values filled with column mode! :white_check_mark:")
-    else:
-        st.sidebar.info("Missing values not changed. The app will not continue with the original dataset.")
-    
-    st.sidebar.header("Step 3: :chart_with_upwards_trend: Apply Machine Learning Algorithms")
+        
+        st.sidebar.header("Step 3: :chart_with_upwards_trend: Apply Machine Learning Algorithms")
 
-    # Choosing target variable and features for machine learning algorithms
-    st.sidebar.write("Choose your target variable and features for machine learning algorithms.")
-    if df is not None: 
-        st.sidebar.write("Note: Since you chose to remove missing values, the target variable \
-                         and features will be based on the cleaned dataset.")
-        target_variable = st.sidebar.selectbox("**Select Target Variable**", options=df.columns)
-        features = st.sidebar.multiselect("**Select Features**", options=df.columns)
-    else:
-        st.sidebar.write("Note: Since you chose to keep missing values, the target variable \
-                         and features will be based on the original dataset.")
-        target_variable_raw = st.sidebar.selectbox("**Select Target Variable**", options=raw_data.columns)
-        features_raw = st.sidebar.multiselect("**Select Features**", options=raw_data.columns)
+        # Choosing target variable and features for machine learning algorithms
+        st.sidebar.write("Choose your target variable and features for machine learning algorithms.")
+        if df is not None: 
+            st.sidebar.write("Note: Since you chose to remove missing values, the target variable \
+                             and features will be based on the cleaned dataset.")
+            target_variable = st.sidebar.selectbox("**Select Target Variable**", options=df.columns)
+            features = st.sidebar.multiselect("**Select Features**", options=df.columns)
+        else:
+            st.sidebar.write("Note: Since you chose to keep missing values, the target variable \
+                             and features will be based on the original dataset.")
+            target_variable_raw = st.sidebar.selectbox("**Select Target Variable**", options=raw_data.columns)
+            features_raw = st.sidebar.multiselect("**Select Features**", options=raw_data.columns)
     
     #Choosing machine learning algorithm
     st.sidebar.subheader("Choose Machine Learning Algorithm")
