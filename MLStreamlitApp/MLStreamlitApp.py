@@ -77,6 +77,9 @@ else:
 
 raw_data = None #This will be useful for the interactiveness of the app
 df = None
+target_variable = None
+features = None
+algorithm = None
 
 #================================================================================
 # Data Upload and Cleaning
@@ -154,13 +157,13 @@ if uploaded_file is not None: #This is so I have a raw daata variable that won't
         else:
             st.sidebar.write("Note: Since you chose to keep missing values, the target variable \
                              and features will be based on the original dataset.")
-            target_variable_raw = st.sidebar.selectbox("**Select Target Variable**", options=raw_data.columns)
-            features_raw = st.sidebar.multiselect("**Select Features**", options=raw_data.columns)
-    
-    #Choosing machine learning algorithm
-    st.sidebar.subheader("Choose Machine Learning Algorithm")
-    algorithm = st.sidebar.selectbox("Select Algorithm", options=["Linear Regression",\
-                                                                   "Logistic Regression"])
+            target_variable = st.sidebar.selectbox("**Select Target Variable**", options=raw_data.columns)
+            features = st.sidebar.multiselect("**Select Features**", options=raw_data.columns)
+        
+        #Choosing machine learning algorithm
+        st.sidebar.subheader("Choose Machine Learning Algorithm")
+        algorithm = st.sidebar.selectbox("Select Algorithm", options=["Linear Regression",\
+                                                                       "Logistic Regression"])
 with tab2:
     if uploaded_file is not None: 
         st.header("Raw Dataset Preview")
@@ -192,7 +195,10 @@ with tab3:
 with tab4:
     st.header("Machine Learning Algorithms.")
 
-    if algorithm == "Linear Regression":
+    if algorithm is None:
+        st.write("Please upload and prepare your dataset first.")
+    else:
+        if algorithm == "Linear Regression":
         st.write("Linear Regression will be implemented here.")
         st.write(f"You have selected *{target_variable}* as your target variable \
                  and *{features}* as your features for Linear Regression.")
