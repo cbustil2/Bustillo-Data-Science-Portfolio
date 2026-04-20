@@ -43,12 +43,14 @@ st.write("Let's get started! :musical_note: :notes:")
 import pandas as pd
 import os
 
-if not os.path.exists("data/spotify_data.csv"):
-    st.error("spotify_data.csv not found. Make sure it is in the same folder as your app.")
-else:
-    df = pd.read_csv("data/spotify_data.csv")
+# Get the directory of the current script
+script_dir = os.path.dirname(os.path.abspath(__file__))
+data_path = os.path.join(script_dir, "data", "spotify_data.csv")
 
-df = pd.read_csv("data/spotify_data.csv")
+if not os.path.exists(data_path):
+    st.error("spotify_data.csv not found. Make sure it is in the data folder.")
+else:
+    df = pd.read_csv(data_path)
 
 #================================================================================
 # Scaling Data for Sliders
