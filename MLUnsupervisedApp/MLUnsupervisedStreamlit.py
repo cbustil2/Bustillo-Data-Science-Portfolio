@@ -4,7 +4,6 @@
 
 import streamlit as st
 import pandas as pd
-from pathlib import Path
 
 #=== Page Title and Design setup ====
 
@@ -54,21 +53,11 @@ data_source = st.radio("**Choose data source:**", ["Use Sample Data", "Upload Fi
 df = None
 
 if data_source == "Use Sample Data":
-    # Load the sample dataset from the data folder using an absolute path
-    sample_path = Path(__file__).resolve().parent / "data" / "Mall_Customers.xls"
-    if sample_path.exists():
-        try:
-            df = pd.read_excel(sample_path, engine='xlrd')
-            st.success("Sample dataset loaded successfully!")
-            st.write(df.head())
-        except ImportError as err:
-            st.error("The sample dataset requires the 'xlrd' package to read .xls files."
-                     " Please install it or upload a CSV/XLSX file instead.")
-            st.write(f"Error details: {err}")
-            df = None
-    else:
-        st.error(f"Sample dataset not found: {sample_path}")
-        df = None
+    # Load the sample dataset from the data folder
+    df = pd.read_csv('data/Mall_Customers.xls')
+    st.success("Sample dataset loaded successfully!")
+
+    st.write(df.head())
 
 elif data_source == "Upload File":
     uploaded_file = st.file_uploader("Upload your data file (CSV, XLSX, XLS)", type=["csv", "xlsx", "xls"])
@@ -104,4 +93,3 @@ with tab1:
         # Select number of clusters for K-Means
         num_clusters = st.slider("Select number of clusters for K-Means", min_value=2, max_value=10, value=3)
         st.write(f"You have selected the following features: {', '.join(selected_features)}")
-
