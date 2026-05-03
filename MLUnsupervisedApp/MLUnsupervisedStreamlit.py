@@ -57,9 +57,15 @@ if data_source == "Use Sample Data":
     # Load the sample dataset from the data folder using an absolute path
     sample_path = Path(__file__).resolve().parent / "data" / "Mall_Customers.xls"
     if sample_path.exists():
-        df = pd.read_excel(sample_path, engine='xlrd')
-        st.success("Sample dataset loaded successfully!")
-        st.write(df.head())
+        try:
+            df = pd.read_excel(sample_path, engine='xlrd')
+            st.success("Sample dataset loaded successfully!")
+            st.write(df.head())
+        except ImportError as err:
+            st.error("The sample dataset requires the 'xlrd' package to read .xls files."
+                     " Please install it or upload a CSV/XLSX file instead.")
+            st.write(f"Error details: {err}")
+            df = None
     else:
         st.error(f"Sample dataset not found: {sample_path}")
         df = None
