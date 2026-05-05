@@ -63,7 +63,7 @@ df = None
 
 if data_source == "Use Sample Data": # Needs to fix streamlit issue here *********
     # Load the sample dataset from the data folder
-    df = pd.read_csv('data/Mall_Customers.xlsx')
+    df = pd.read_csv('MLUnsupervisedApp/data/Mall_Customers.xlsx')
     st.success("Sample dataset loaded successfully!")
 
     st.write(df.head())
