@@ -15,7 +15,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.cluster import AgglomerativeClustering
 from sklearn.metrics import silhouette_score
 
-#=== Page Title and Design setup ====
+#=== Page Title and Design setup ===========================================================================================================
 
 st.set_page_config(page_title="ML Unsupervised App", page_icon=":bar_chart:", layout="wide")
 st.markdown('<a name="top"></a>', unsafe_allow_html=True) #This is useful since the first tab is long
@@ -55,13 +55,13 @@ st.write("\n\n"
 
 st.write("\n\n")
 
-#=== Data Upload Section ====
+#=== Data Upload Section ===================================================================================================================
 
 data_source = st.radio("**Choose data source:**", ["Use Sample Data", "Upload File"])
 
 df = None
 
-if data_source == "Use Sample Data":
+if data_source == "Use Sample Data": # Needs to fix streamlit issue here *********
     # Load the sample dataset from the data folder
     df = pd.read_csv('data/Mall_Customers.xls')
     st.success("Sample dataset loaded successfully!")
@@ -161,7 +161,7 @@ with tab1:
                  You have selected ***{num_clusters}*** clusters for K-Means and the ***{linkage_method}*** method for Hierarchical Clustering."
                  )
         
-        #=== Data Preview Section ====
+        #=== Data Preview Section =========================================================================================================
         st.divider()
         st.subheader("📊 Data Preview")
         
@@ -246,7 +246,7 @@ with tab1:
     else:
         st.warning("Please upload a dataset to select features and hyperparameters for K-Means, Hierarchical and PCA.")
         
-#=== K-Means Clustering ====
+#=== K-Means Clustering =====================================================================================================================
 with tab2:
     k = num_clusters
     st.header("K-Means Clustering")
@@ -350,7 +350,7 @@ with tab2:
 
 
         
-#=== Hierarchical Clustering ====
+#=== Hierarchical Clustering ==============================================================================================================
 with tab3:
     st.header("Hierarchical Clustering")
     st.write("In this section, you can view the results of Hierarchical Clustering based on your selected features and linkage method.")
@@ -432,7 +432,7 @@ with tab3:
         st.warning("Please select features and upload a dataset to view Hierarchical Clustering results.")
 
 
-#=== PCA Visualization ====
+#=== PCA Visualization ==================================================================================================================
 with tab4:
     st.header("PCA Visualization")
     st.write("In this section, you can view the PCA visualization of your dataset based on the selected features.")
