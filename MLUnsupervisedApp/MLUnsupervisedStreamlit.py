@@ -304,7 +304,7 @@ with tab2:
         with st.expander("What am I looking at? :thought_balloon:"):
             st.markdown("""
             The K-Means clustering results can be interpreted by looking at the <span style="background-color: #FFF7A8;">silhouette score and the 
-            PCA visualization of the clusters</span>. A silhouette score close to 1, which is high, indicates that the clusters are 
+            PCA visualization of the clusters</span>. A **silhouette score** close to 1, which is high, indicates that the clusters are 
             well-defined and distinct, while a score close to 0 suggests that the clusters are overlapping or 
             not well-separated. The **PCA visualization** <span style="background-color: #FFF7A8;">shows the distribution of the clusters in a 
             reduced dimensional space, allowing you to see how the data points are grouped together based on the 
@@ -383,10 +383,10 @@ with tab3:
         
         with st.expander("What am I looking at? :thought_balloon:"):
             st.markdown("""
-            The hierarchical clustering results can be interpreted by looking at the dendrogram.
-            The dendrogram shows how the data points are merged together based on their similarity. 
-            The height of the branches represents the distance between clusters, and the vertical lines 
-            indicate where clusters are formed. By cutting the dendrogram at a certain height, you can determine 
+            The **hierarchical clustering results** can be interpreted by looking at the dendrogram.
+            The **dendrogram** <span style="background-color: #FFF7A8;">shows how the data points are merged together based on their similarity</span>. 
+            The *height* of the branches <span style="background-color: #FFF7A8;">represents the distance between clusters</span>, and the *vertical lines* 
+            <span style="background-color: #FFF7A8;">indicate where clusters are formed</span>. By cutting the dendrogram at a certain height, you can determine 
             the number of clusters in your data. The choice of linkage method (ward, complete, average, single) 
             affects how the distances between clusters are calculated and can lead to different clustering results. 
             Analyzing the dendrogram helps you understand the structure of your data and identify meaningful clusters.
@@ -417,13 +417,13 @@ with tab3:
         plt.xticks(k_range)
         plt.grid(True)
         st.pyplot(plt)
-        with st.expander("What am I looking at? :thought_balloon:"):
+        with st.expander("What am I looking at? :thought_balloon:"): # Similar discription to the one for K-Means, but with a focus on hierarchical clustering instead.
             st.markdown("""
-            The silhouette score optimization helps you determine the optimal number of clusters in your data. 
+            The **silhouette score optimization** helps you <span style="background-color: #FFF7A8;">determine the optimal number of clusters in your data</span>. 
             By looking at the silhouette scores, you can identify the value of k that maximizes the silhouette score, 
-            indicating the best-defined clusters. The plot of silhouette scores allows you to visually 
+            indicating the best-defined clusters. The *plot of silhouette scores* <span style="background-color: #FFF7A8;">allows you to visually 
             see how the quality of clustering changes with different values of k, helping you make an informed
-            decision about the number of clusters to use for your hierarchical clustering analysis.
+            decision about the number of clusters to use for your hierarchical clustering analysis.</span>
             """, unsafe_allow_html=True)
         st.markdown("""
             ***Next step***: Go to the "PCA Visualization" tab"""
@@ -483,10 +483,13 @@ with tab4:
         
         with st.expander("What am I looking at? :thought_balloon:"):
             st.markdown("""
-            The PCA visualization shows how the data points are distributed in a reduced dimensional space based on the selected features. 
-            The explained variance ratio shows how much of the original variance in the data is captured by each principal component. 
-            A higher explained variance ratio means that the principal component captures more of the variability in the data. 
-            By looking at the scatter plot of the PCA results, you can identify patterns, clusters, or trends in your dataset that
+            The **PCA visualization** shows <span style="background-color: #FFF7A8;">how the data points are distributed in a reduced dimensional space 
+            based on the selected features</span>. 
+            The **explained variance ratio** shows <span style="background-color: #FFF7A8;">how much of the original variance in the data is 
+                        captured by each principal component</span>. 
+            A **higher explained variance ratio** means that the <span style="background-color: #FFF7A8;">principal component captures 
+                        more of the variability in the data</span>. 
+            By looking at the **scatter plot** of the PCA results, you can identify patterns, clusters, or trends in your dataset that
             may not be apparent in the original high-dimensional space. This visualization can help you gain insights into the
              structure of your data and understand the relationships between different features.""")
             
@@ -496,10 +499,11 @@ with tab4:
         st.dataframe(loadings, use_container_width=True)
         with st.expander("What are PCA loadings? :thought_balloon:"):
             st.markdown("""
-            PCA loadings represent the contribution of each original feature to the principal components. 
+            **PCA loadings** <span style="background-color: #FFF7A8;">represent the contribution of each original feature to the principal components</span>. 
             They indicate how much each feature influences the direction of the principal components in the reduced dimensional space. 
-            A higher absolute value of a loading indicates that the feature has a stronger influence on that principal component. 
-            By analyzing the loadings, you can understand which features are most important in explaining the variance captured by each principal component and gain insights into the underlying structure of your data.
+            A **higher absolute value** of a loading indicates that the feature has a stronger influence on that principal component. 
+            By analyzing the loadings, you can understand which features are most important in explaining the variance captured by each
+            principal component and gain insights into the underlying structure of your data.
             """, unsafe_allow_html=True)
     # PCA Horizontal Bar Plot of Loadings
         st.subheader("PCA Loadings Bar Plot")
@@ -543,8 +547,8 @@ with tab4:
         st.pyplot(fig)
         with st.expander("What am I looking at? :thought_balloon:"):
             st.markdown("""
-            The PCA loadings bar plot shows the contribution of each original feature to the principal components. 
-            By looking at the bar plot, you can easily identify which features have the strongest influence on each principal component. 
+            The **PCA loadings bar plot** <span style="background-color: #FFF7A8;">shows the contribution of each original feature to the principal components</span>. 
+            By looking at the **bar plot**, you can easily identify which features have the strongest influence on each principal component. 
             This helps you understand the underlying structure of your data and which features are most important 
             in explaining the variance captured by the PCA.
             """, unsafe_allow_html=True)
