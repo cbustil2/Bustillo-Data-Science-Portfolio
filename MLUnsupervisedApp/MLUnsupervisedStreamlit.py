@@ -115,10 +115,10 @@ with tab1:
             #is just to allow for a really good interactive explanation of particular parts of the modeling process. 
             st.markdown("""
             Feature selection for K-Means, Hierarchical and PCA is imporrtant because it allows you 
-            to <span style="background-color: #FFFF00;">focus on the most relevant information in your dataset</span>. 
-            By choosing specific features, you can <span style="background-color: #FFFF00;">improve the performance of your clustering 
+            to <span style="background-color: #FFF7A8;">focus on the most relevant information in your dataset</span>. 
+            By choosing specific features, you can <span style="background-color: #FFF7A8;">improve the performance of your clustering 
             algorithms, hierarchical clustering and PCA visualization</span>. It helps in <span style="background-color: \
-                        #FFFF00;">reducing noise and irrelevant data</span>, 
+                        #FFF7A8;">reducing noise and irrelevant data</span>, 
             which can lead to *better insights* and more *meaningful clusters*. Additionally, selecting 
             the right features can enhance the **interpretability** of your results and make it easier to 
             understand the underlying patterns in your data.
@@ -136,7 +136,7 @@ with tab1:
         with st.expander("What is the purpose of selecting the number of clusters for K-Means? :thought_balloon:"):
             st.markdown("""
             Selecting the number of clusters for K-Means is important because it impacts **directly** to the quality and interpretability of 
-            your clustering results. The number of clusters <span style="background-color: #FFFF00;">determines how the algorithm 
+            your clustering results. The number of clusters <span style="background-color: #FFF7A8;">determines how the algorithm 
             groups your data points</span>, and choosing an appropriate value can help you find meaningful patterns and 
             insights from your dataset. If you select too few clusters, <span style="background-color: #FFB3B3;">you may oversimplify 
             the data and miss important distinctions between groups</span>. Now, if you select too many clusters, 
@@ -148,7 +148,7 @@ with tab1:
                                                                                                     "average", "single"], index=0)
         with st.expander("What is the purpose of selecting the linkage method for Hierarchical Clustering? :thought_balloon:"):
             st.markdown("""
-            The linkage method for Hierarchical Clustering helps determines how the algorithm <span style="background-color: #FFFF00;">calculates 
+            The linkage method for Hierarchical Clustering helps determines how the algorithm <span style="background-color: #FFF7A8;">calculates 
             the distance between clusters and how it merges them</span>. Different linkage methods can lead to different clustering results, 
             and choosing the appropriate one can help you find meaningful patterns in your data. For example, the *"ward"* method 
             minimizes the variance within clusters, while the *"complete"* method considers the maximum distance between points 
