@@ -1,6 +1,4 @@
-""" Machine Learning Unsupervised App """
-# I will be referencing ricardoagonzalezc streamlit app for this project, specifically to find some inspiration for a particular design
-# particularly with remembering how to have an interactive upload button and use example button. 
+""" Machine Learning Unsupervised App """ 
 
 import streamlit as st
 import pandas as pd

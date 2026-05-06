@@ -31,7 +31,7 @@ As we are learning how to utilize Unsupervised Machine Learning models, we were 
 ---
 
 ## How to Use the App
-When you click **[here](https://bustillo-data-science-portfolio-hzbraez8mlwqqbefvofgds.streamlit.app/)**, it should take you to the app (Note: deployment may still be unstable, so local use is recommended). Once inside the app, there are three main steps:
+When you click **[here](https://bustillo-data-science-portfolio-hzbraez8mlwqqbefvofgds.streamlit.app/)**, it should take you to the app. Once inside the app, there are three main steps:
 
 1) **Upload or Select a Dataset**  
 2) **Apply Unsupervised Learning Algorithms**  
@@ -46,20 +46,16 @@ You can also click **[here](https://github.com/cbustil2/bustillo-data-science-po
 ### Applications and Code
 Some applications and libraries used include:
 
-- Streamlit  
-- Python  
-- Pandas  
-- NumPy  
-- Seaborn  
-- Scikit‑Learn  
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![Seaborn](https://img.shields.io/badge/Seaborn-4C72B0?style=for-the-badge&logo=seaborn&logoColor=white)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+
 
 ### Sample Datasets
-I selected two sample datasets that work well for unsupervised learning:
-
-- **Mall Customer Segmentation Dataset** — ideal for K‑means clustering because it contains clear numeric features like income, spending score, and age.  
-- **Wholesale Customers Dataset** — useful for PCA and clustering because it contains multiple spending categories that naturally form groups.
+I selected only one sample datasets that works well for unsupervised learning: **Mall Customer Segmentation Dataset** — ideal for K‑means clustering because it contains clear numeric features like income, spending score, and age. Click [here](https://www.kaggle.com/datasets/vjchoudhary7/customer-segmentation-tutorial-in-python) to look into the Kaggle dataset. 
 
 ### Assistance
-To assist in building the app, I looked at Ahmed Mohammed Sabri’s Streamlit machine learning app, which helped me understand file‑upload workflows and clean UI structure. You can find his work **[here](https://github.com/Amsamms)**.
-
-When I encountered errors—especially during deployment and while integrating PCA and clustering—I used Copilot to debug and refine my code.
+I based much of the layout on my previous app, supervised machine learnign. When I encountered errors—especially during deployment and while integrating PCA and clustering—I used Copilot to debug and refine my code.
