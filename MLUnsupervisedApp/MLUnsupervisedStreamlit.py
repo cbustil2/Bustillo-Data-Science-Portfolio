@@ -153,7 +153,7 @@ with tab1:
             and choosing the appropriate one can help you find meaningful patterns in your data. For example, the *"ward"* method 
             <span style="background-color: #DFFFD6;">minimizes the variance within clusters</span>, while the *"complete"* method <span style="background-color: #DFFFD6;">
             considers the maximum distance between points in different clusters</span>. The *"average"* method <span style="background-color: #DFFFD6;">calculates 
-            the average distance between points in different clusters,</span>, 
+            the average distance between points in different clusters,</span> 
             and the *"single"* method <span style="background-color: #DFFFD6;">considers the minimum distance between points in different clusters</span>. Therefore, selecting 
             the right linkage method is crucial for producing accurate and insightful hierarchical clustering results.
             """, unsafe_allow_html=True)
