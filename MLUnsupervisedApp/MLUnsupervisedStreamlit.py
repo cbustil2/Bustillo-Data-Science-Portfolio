@@ -151,9 +151,10 @@ with tab1:
             The linkage method for Hierarchical Clustering helps determines how the algorithm <span style="background-color: #FFF7A8;">calculates 
             the distance between clusters and how it merges them</span>. Different linkage methods can lead to different clustering results, 
             and choosing the appropriate one can help you find meaningful patterns in your data. For example, the *"ward"* method 
-            minimizes the variance within clusters, while the *"complete"* method considers the maximum distance between points 
-            in different clusters. The *"average"* method calculates the average distance between points in different clusters, 
-            and the *"single"* method considers the minimum distance between points in different clusters. Therefore, selecting 
+            <span style="background-color: #DFFFD6;">minimizes the variance within clusters</span>, while the *"complete"* method <span style="background-color: #DFFFD6;">
+            considers the maximum distance between points in different clusters</span>. The *"average"* method <span style="background-color: #DFFFD6;">calculates 
+            the average distance between points in different clusters,</span>, 
+            and the *"single"* method <span style="background-color: #DFFFD6;">considers the minimum distance between points in different clusters</span>. Therefore, selecting 
             the right linkage method is crucial for producing accurate and insightful hierarchical clustering results.
             """, unsafe_allow_html=True)
 
