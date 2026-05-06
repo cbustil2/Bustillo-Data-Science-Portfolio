@@ -21,23 +21,23 @@ As we are learning how to utilize Unsupervised Machine Learning models, we were 
 
 
 ## Process
-- I began by figuring out how to allow users to upload their own data, taking inspiration from jonthegeek’s examples.  
+- I began by figuring out how to allow users to upload their own data as well as pick a dataset to as a sample.  
 - Next, I organized the app into tabs so the user can move step‑by‑step through the workflow.  
-- I separated data cleaning from model building by placing cleaning tools in the sidebar and clustering/PCA tools in the main tabs.  
-- I made sure the raw data and cleaned data appear in separate sections so the user can clearly see the changes they make.  
-- I implemented K‑means clustering and PCA in separate `selectbox` options so the user can choose which method to run.  
+- Starting with tuning and hyperameter selection as the current tab, this allows the user to make their edits and determine the focus of their unsupervised learning model before seeing the calculations. 
+- I made sure to include in the tab information about the raw data and to allow the user to utilize missing data.  
+- 
 - I added comments and explanations throughout the app to help the user understand what each graph and metric represents and what patterns they should expect to see.
 
 ---
 
 ## How to Use the App
-When you click **here [(cbustilunsupervised.streamlit.app in Bing)](https://www.bing.com/search?q="https%3A%2F%2Fcbustilunsupervised.streamlit.app%2F")**, it should take you to the app (Note: deployment may still be unstable, so local use is recommended). Once inside the app, there are three main steps:
+When you click **[here](https://bustillo-data-science-portfolio-hzbraez8mlwqqbefvofgds.streamlit.app/)**, it should take you to the app (Note: deployment may still be unstable, so local use is recommended). Once inside the app, there are three main steps:
 
 1) **Upload or Select a Dataset**  
 2) **Apply Unsupervised Learning Algorithms**  
 3) **Visualize and Interpret Results**
 
-You can also click **here [(github.com in Bing)](https://www.bing.com/search?q="https%3A%2F%2Fgithub.com%2Fcbustil2%2FBustillo-Data-Science-Portfolio%2Fblob%2Fmain%2FUnsupervisedMLApp%2FUnsupervisedMLApp.py")** to view the full code used to build the app. Running the script locally avoids the deployment issues.
+You can also click **[here](https://github.com/cbustil2/bustillo-data-science-portfolio/blob/main/MLUnsupervisedApp/MLUnsupervisedStreamlit.py)** to view the full code used to build the app. Running the script locally avoids the deployment issues.
 
 ---
 
