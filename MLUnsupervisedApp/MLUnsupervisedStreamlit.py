@@ -303,13 +303,13 @@ with tab2:
         st.pyplot(plt)
         with st.expander("What am I looking at? :thought_balloon:"):
             st.markdown("""
-            The K-Means clustering results can be interpreted by looking at the silhouette score and the 
-            PCA visualization of the clusters. A silhouette score close to 1, which is high, indicates that the clusters are 
+            The K-Means clustering results can be interpreted by looking at the <span style="background-color: #FFF7A8;">silhouette score and the 
+            PCA visualization of the clusters</span>. A silhouette score close to 1, which is high, indicates that the clusters are 
             well-defined and distinct, while a score close to 0 suggests that the clusters are overlapping or 
-            not well-separated. The PCA visualization shows the distribution of the clusters in a 
+            not well-separated. The PCA visualization <span style="background-color: #FFF7A8;">shows the distribution of the clusters in a 
             reduced dimensional space, allowing you to see how the data points are grouped together based on the 
-            selected features. These cluster centers and the spread of the data points help provide insights 
-            into the characteristics of each cluster and identify any patterns or trends in your dataset.
+            selected features</span>. These cluster centers and the spread of the data points help <span style="background-color: #FFF7A8;">provide insights 
+            into the characteristics of each cluster and identify any patterns or trends in your dataset</span>.
             """, unsafe_allow_html=True)
 
         #Evaluating the optimal number of clusters using silhouette score
