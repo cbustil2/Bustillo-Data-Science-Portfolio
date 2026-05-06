@@ -3,15 +3,6 @@ As I am taking an introductory class into Data Science, listed here are my proje
 
 ---
 
-## 📚 Table of Contents
-- [Spotify Data App](#spotify-data-app)
-- [Tidying Federal R&D](#tidying-federal-rd)
-- [Machine Learning Streamlit App](#machine-learning-streamlit-app)
-- [Unsupervised Machine Learning](#unsupervised-machine-learning)
-- [Goals](#goals)
-
----
-
 ## 🎵 Spotify Data App
 **[View Project →](https://github.com/cbustil2/Bustillo-Data-Science-Portfolio/blob/main/basic_streamlit_app/Spotify%20Data%20App/README.md)**  
 - Finding ways to discover songs to dance to, vibe to, or explore new music.
