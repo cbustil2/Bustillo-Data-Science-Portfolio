@@ -1,21 +1,47 @@
-# Data Science Projects
-As I am taking an introductory class into Data Science, listed here will be my projects that will go into various topics and skills. These will both include school related and personal projects. Please refer to the table of contents as a way to navigate to each of the projects. 
+# 📊 Data Science Projects
+As I am taking an introductory class into Data Science, listed here are my projects covering various topics and skills. These include both school-related and personal projects. Use the table of contents below to navigate.
 
-## Projects
-[Spotify Data App](https://github.com/cbustil2/Bustillo-Data-Science-Portfolio/blob/main/basic_streamlit_app/Spotify%20Data%20App/README.md)
+---
 
-- Finding ways to find a song to dance to, vibe, or discover. 
+## 📚 Table of Contents
+- [Spotify Data App](#spotify-data-app)
+- [Tidying Federal R&D](#tidying-federal-rd)
+- [Machine Learning Streamlit App](#machine-learning-streamlit-app)
+- [Unsupervised Machine Learning](#unsupervised-machine-learning)
+- [Goals](#goals)
 
-[Tidying Federal R&D](https://github.com/cbustil2/Bustillo-Data-Science-Portfolio/tree/main/TidyData-Project)
-- Learning the process of tidying data and visualizing it in a more concise and simpler matter. 
-- This process has helped me to understand how to deal with messy-looking data and prepare it for data-analyzing
-- With regards to coding, I have learned how to use melt(), split(), and pivot(). This particular dataset also allowed me to see the progress and development of government spending. 
+---
 
-[Machine Learning Streamlit App](https://github.com/cbustil2/Bustillo-Data-Science-Portfolio/tree/main/MLStreamlitApp)
-- Utilizing supervised learning models, such as linear and logistic regression, decision trees, k-nearest neighbors. 
-- Learned how to interact with the user even more, allowing them to upload their own data and by my code, allowing them to implement a linear or logistic regression model. 
-- Key lessons is the process of modeling either linear or logistically and following their respective assumptions and graphing calculations. 
+## 🎵 Spotify Data App
+**[View Project →](https://github.com/cbustil2/Bustillo-Data-Science-Portfolio/blob/main/basic_streamlit_app/Spotify%20Data%20App/README.md)**  
+- Finding ways to discover songs to dance to, vibe to, or explore new music.
 
-## Goals:
-- To set up a group for the Data Science Class, another for any elective from Data Science, and personal projects
-- In the README.md, include a TLDR of each project with link that will go into the particular project. 
+---
+
+## 🧹 Tidying Federal R&D
+**[View Project →](https://github.com/cbustil2/Bustillo-Data-Science-Portfolio/tree/main/TidyData-Project)**  
+- Learning the process of tidying data and visualizing it in a more concise and simpler manner.  
+- Helped me understand how to deal with messy-looking data and prepare it for analysis.  
+- Learned how to use `melt()`, `split()`, and `pivot()`. This dataset also allowed me to observe trends in government spending.
+
+---
+
+## 🤖 Machine Learning Streamlit App
+**[View Project →](https://github.com/cbustil2/Bustillo-Data-Science-Portfolio/tree/main/MLStreamlitApp)**  
+- Utilizing supervised learning models such as linear and logistic regression, decision trees, and k-nearest neighbors.  
+- Learned how to interact with the user by allowing them to upload their own data and apply models through the app.  
+- Key lessons include understanding the modeling process, assumptions, and graphing calculations for both linear and logistic regression.
+
+---
+
+## 🌀 Unsupervised Machine Learning
+**[View Project →](https://github.com/cbustil2/Bustillo-Data-Science-Portfolio/tree/main/MLUnsupervisedApp)**  
+- Learning how to apply unsupervised learning models such as K-means clustering, hierarchical clustering, and PCA.  
+- Gained experience guiding the user through uploading/selecting a dataset, cleaning it, choosing features, and exploring natural groupings.  
+- Key lessons include understanding how clustering algorithms identify patterns without labels, how PCA reduces dimensionality, and how to interpret cluster assignments, elbow curves, and silhouette scores.
+
+---
+
+## 🎯 Goals
+- Set up groups for Data Science class projects, elective projects, and personal projects.  
+- Include a TLDR of each project with a link to the full project page.
