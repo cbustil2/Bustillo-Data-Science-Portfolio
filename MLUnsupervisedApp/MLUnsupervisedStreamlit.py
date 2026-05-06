@@ -306,9 +306,9 @@ with tab2:
             The K-Means clustering results can be interpreted by looking at the <span style="background-color: #FFF7A8;">silhouette score and the 
             PCA visualization of the clusters</span>. A silhouette score close to 1, which is high, indicates that the clusters are 
             well-defined and distinct, while a score close to 0 suggests that the clusters are overlapping or 
-            not well-separated. The PCA visualization <span style="background-color: #FFF7A8;">shows the distribution of the clusters in a 
+            not well-separated. The **PCA visualization** <span style="background-color: #FFF7A8;">shows the distribution of the clusters in a 
             reduced dimensional space, allowing you to see how the data points are grouped together based on the 
-            selected features</span>. These cluster centers and the spread of the data points help <span style="background-color: #FFF7A8;">provide insights 
+            selected features</span>. These *cluster centers* and the *spread* of the data points help <span style="background-color: #FFF7A8;">provide insights 
             into the characteristics of each cluster and identify any patterns or trends in your dataset</span>.
             """, unsafe_allow_html=True)
 
@@ -336,10 +336,10 @@ with tab2:
         st.pyplot(plt)
         with st.expander("What am I looking at? :thought_balloon:"):
             st.markdown("""
-            The silhouette score optimization helps you determine the optimal number of clusters in your data. 
+            The **silhouette score optimization** <span style="background-color: #FFF7A8;">helps you determine the optimal number of clusters in your data</span>. 
             You can identify the value of k that maximizes the silhouette score, indicating the best-defined clusters, by looking at the 
-            plot of silhouette scores. The plot of silhouette scores allows you to see how the quality of clustering 
-            changes with different values of k, helping you make a decision about the number of clusters to use for
+            plot of silhouette scores. The *plot of silhouette scores* <span style="background-color: #FFF7A8;">allows you to see how the quality of clustering 
+            changes with different values of k</span>, helping you make a decision about the number of clusters to use for
             your K-Means clustering analysis.
             """, unsafe_allow_html=True)
         st.markdown("""
